@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link th:href="@{css/style.css}" rel="stylesheet">
+</head>
+<body>
+ 
+<div class="container mt-5">
+		<h2>Dettagli Catalogo</h2>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Marchio</th>
+					<th>Modello</th>
+					<th>OS</th>
+					<th>Memoria</th>
+					<th>Prezzo</th>
+					<th>Descrizione</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<div class="container mt-5">
+   	 					<div class="row">
+        					<div class="col-md-12 text-center">
+								<img th:src="@{'image/articolo_'+${name}+'.png'}">
+							</div>
+   	 					</div>
+					</div>
+					<br>
+					<br>
+					<br>
+					
+					<div>
+						<td th:text="${articoli[name-1].id}"></td>
+						<td th:text="${articoli[name-1].marchio}"></td>
+						<td th:text="${articoli[name-1].modello}"></td>
+						<td th:text="${articoli[name-1].os}"></td>
+						<td th:text="${articoli[name-1].memoria}"></td>
+						<td th:text="${articoli[name-1].prezzo}"></td>
+						<td th:text="${articoli[name-1].descrizione}"></td>
+					</div>
+				</tr>
+
+			</tbody>
+		</table>
+		<a th:href="@{/}" class="btn btn-primary">Torna al catalogo</a>
+		<a th:href="@{/dettaglio/aggiungi(id=${articoli[name-1].id})}" class="btn btn-primary" >Aggiungi al Carrello</a>
+	</div>
+
+</body>
+</html>
